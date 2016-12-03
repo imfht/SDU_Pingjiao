@@ -51,7 +51,7 @@ class Util():
         text = '亲爱的%s:<br>你提交的课程评价已经完成，为了确保成功，请务必访问<a href="http://202.194.15.33:21043">http://202.194.15.33:21043</a> 查看是否评价成功，如果可以的话，希望你能够专注一下本猿的公众号，手动搜索 > 序猿的小站<br>' \
                 '如果在课程评估中出现了什么问题，你可以通过这个邮件来联系我<br>' \
                '希望你是一个漂亮的小姑娘( ♥д♥)'%(self.xh)
-        sendEmail(text)
+        sendEmail(self.email,text)
 
     def _postData(self): # 评价课程
         py = random.choice(wordsList)
@@ -85,7 +85,7 @@ class Util():
             if 'success' in response.text:
                 return True
             elif u'用户名或密码错误' in response.text:
-                sendEmail('很遗憾，你的登录密码错误，请仔细核对，你输入的密码是%s'%self.passwd)
+                sendEmail(self.email,'很遗憾，你的登录密码错误，请仔细核对，你输入的密码是%s'%self.passwd)
                 return False
             else:
                 logging.log(level=5,msg='不能读懂服务器返回了什么')
