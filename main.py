@@ -23,7 +23,7 @@ def hello_world():
         passwd = request.form['password']
         email = request.form['email']
         r.rpush('info','%s/%s/%s'%(xh,passwd,email))
-        return u'请求已经成功提交，评价完毕之后将会发送邮件通知。'
+        return u'<script>alert("提交完毕,请等待邮件通知,如果五分钟之内没有收到邮件,尝试重新提交(也可以找我反馈");window.close();</script>'
 
 if __name__ == '__main__':
-    app.run(port=5000)
+    app.run(port=5000,debug=True)
