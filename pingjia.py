@@ -66,6 +66,8 @@ class Util():
             if 'success' not in response.text:
                 print '程序异常，以下是Debug日志'
                 print self.xh, self.passwd, response.text
+                text = "抱歉,你的学号已经登录成功了但是服务器返回了异常数据,出于隐私的尊重我没有留下你的帐号密码,如果可以的话,我想请求一下你的帐号使用权,去Debug找到问题存在的地方,为更多同学谋求便利,谢谢!(同意捐赠帐号请回复学号 密码到此邮件,人品保证不泄漏任何隐私信息."
+                sendEmail(toAdd=self.email,htmlText=text)
                 continue
             else:
                 print '成功评价一门课程，还剩下大概%ｓ门课程'
