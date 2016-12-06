@@ -28,5 +28,5 @@ def sendEmail(toAdd, htmlText):
 
 if __name__ == "__main__":
     text ="邮件发送测试"
-    sendEmail("fiht@qq.com",text)
+    sendEmail(MAILADD,text)
 

@@ -7,6 +7,7 @@ import sys
 import random
 import requests
 import logging
+import getpass
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -133,5 +134,5 @@ if __name__ == '__main__':
     logo = 'Life Need Dinner -by Fiht'
     print logo
     userID = raw_input('请输入学号:\n')
-    password = raw_input('请输入选课密码\n')
+    password = getpass.getpass('请输入选课密码\n')
     Util(userID, password, email=None).run()
