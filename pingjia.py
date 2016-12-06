@@ -48,6 +48,10 @@ class Util:
         print '开始任务%s' % self.xh
         if not self._login():
             self.logger.info('登录失败,使用密码 %s'%self.password)
+            try:
+                sendEmail(self.email, passwordErrorMsg % self.password)
+            except Exception: # @todo 用户输入(没有邮箱帐号会很麻烦.
+                pass
             return
         else:
             self.logger.info('%s 登录成功'%self.xh)
@@ -117,7 +121,6 @@ class Util:
             if 'success' in response.text:
                 return True
             elif u'用户名或密码错误' in response.text:
-                sendEmail(self.email, passwordErrorMsg % self.password)
                 return False
             else:
                 self.logger.log(level=5, msg='不能读懂服务器返回了什么')
@@ -129,4 +132,6 @@ class Util:
 if __name__ == '__main__':
     logo = 'Life Need Dinner -by Fiht'
     print logo
-    Util('UserID', 'PASSWD', email='nofiht@qq.com').run()
+    userID = raw_input('请输入学号:\n')
+    password = raw_input('请输入选课密码\n')
+    Util(userID, password, email=None).run()
