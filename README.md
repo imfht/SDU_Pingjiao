@@ -1,5 +1,7 @@
 # SDU_Pingjiao
 一键提交山东大学的评教系统（其实是清华大学的）,一共提供两个版本供大家使用,
+## Update
+被一个 pr 升级到了 py3，版本兼容的问题还没解决 可移步--> [https://github.com/Trim21/sdu_bkjws](https://github.com/Trim21/sdu_bkjws) 
 ## 版本一,个人使用
 ```
 git clone https://github.com/fiht/SDU_Pingjiao
